@@ -1,0 +1,16 @@
+<section class="registration_form">
+  <mat-card>
+    <h3 class="item_title">Форма регистрации</h3>
+    <form color="primary" class="registrationform" [formGroup] = "regGroup" (submit) = "registration()">
+      <mat-form-field color="primary" (click)="emailChange()">
+              <input [focus]="focus_email" matInput placeholder="E-mail" formControlName="email" required (keyup.enter)="emailEnter(regGroup.controls.email.valid)">
+              <mat-hint *ngIf="regGroup.controls.email.invalid">Введите в формате "test@mail.ru" и нажмите enter</mat-hint>
+      </mat-form-field>
+      <mat-form-field color="primary" *ngIf="!hidden">
+          <input [focus]="focus_password" type="password" matInput placeholder="Пароль" formControlName="password" required>
+          <mat-hint *ngIf="regGroup.controls.password.invalid">Пароль должен содержать: не менее 7 символов, верхний и нижний регистр, спец символы и цифры</mat-hint>
+      </mat-form-field>
+      <button color="primary" mat-raised-button [disabled] = "regGroup.invalid">Регистрация</button>
+    </form>
+  </mat-card>
+</section>
