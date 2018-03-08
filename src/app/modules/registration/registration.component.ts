@@ -12,11 +12,11 @@ const PASSWORD_REGEX = /(?=.*\d)(?=.*[A-Z])(?=.*\W)/
 })
 export class RegistrationComponent implements OnInit {
 
-  private regGroup: FormGroup;
-  private hidden = true;
-  private focus_password = false;
-  private focus_email = false;
-  private email = '';
+  public regGroup: FormGroup;
+  public hidden = true;
+  public focus_password = false;
+  public focus_email = false;
+  public email = '';
 
   constructor(formBuilder: FormBuilder,) { 
     this.regGroup = formBuilder.group({
